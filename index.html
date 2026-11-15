@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2027 新年晚会 · 视觉方案（主题词 × 主KV × 邀请函）</title>
+<style>
+:root{
+  --bg:#FAF7F2; --card:#FFFFFF; --ink:#1A1714; --ink2:#4A423A; --ink3:#8A7F73;
+  --line:#E7DFD3; --line2:#D6CBB9;
+  --acc:#A8322D; --acc2:#B08B4F;
+  --serif:"Songti SC","STZhongsong","Source Han Serif SC","Noto Serif CJK SC",SimSun,serif;
+  --sans:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Source Han Sans SC",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--sans);
+  -webkit-font-smoothing:antialiased; line-height:1.75;
+  font-size:15px;
+}
+img{display:block;max-width:100%}
+.serif{font-family:var(--serif)}
+
+/* ============ 顶部导航 ============ */
+.nav{
+  position:sticky; top:0; z-index:40;
+  background:rgba(250,247,242,.88); backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{
+  max-width:1180px; margin:0 auto; padding:11px 28px;
+  display:flex; align-items:center; gap:22px;
+}
+.nav-brand{font-family:var(--serif); font-size:15px; letter-spacing:.14em; color:var(--ink); white-space:nowrap}
+.nav-brand b{color:var(--acc); font-weight:600}
+.nav-links{display:flex; gap:4px; margin-left:auto; flex-wrap:wrap}
+.nav-links a{
+  font-size:13px; color:var(--ink2); text-decoration:none; padding:5px 11px;
+  border-radius:99px; transition:.18s; white-space:nowrap;
+}
+.nav-links a:hover{background:#F0E9DD; color:var(--ink)}
+.nav-btn{
+  font-size:12.5px; border:1px solid var(--line2); background:transparent; color:var(--ink2);
+  padding:6px 13px; border-radius:99px; cursor:pointer; font-family:var(--sans); transition:.18s;
+}
+.nav-btn:hover{background:var(--ink); color:#fff; border-color:var(--ink)}
+
+/* ============ Hero ============ */
+.hero{max-width:1180px; margin:0 auto; padding:72px 28px 44px}
+.eyebrow{
+  font-size:12px; letter-spacing:.26em; color:var(--acc2);
+  display:flex; align-items:center; gap:12px; margin-bottom:26px;
+}
+.eyebrow::after{content:""; height:1px; width:64px; background:var(--line2); flex:none}
+.hero h1{
+  font-family:var(--serif); font-size:clamp(34px,5vw,58px); line-height:1.18;
+  font-weight:400; letter-spacing:.02em; margin-bottom:22px;
+}
+.hero h1 em{font-style:normal; color:var(--acc)}
+.hero p{max-width:660px; color:var(--ink2); font-size:15.5px}
+.hero-meta{
+  display:flex; gap:36px; flex-wrap:wrap; margin-top:34px;
+  padding-top:26px; border-top:1px solid var(--line);
+}
+.hero-meta div{font-size:13px; color:var(--ink3)}
+.hero-meta strong{
+  display:block; font-family:var(--serif); font-size:21px; color:var(--ink);
+  font-weight:400; margin-bottom:2px; letter-spacing:.02em;
+}
+
+/* ============ 总览卡片 ============ */
+.sec{max-width:1180px; margin:0 auto; padding:0 28px 88px}
+.sec-head{display:flex; align-items:baseline; gap:16px; margin-bottom:30px; flex-wrap:wrap}
+.sec-num{
+  font-family:var(--serif); font-size:13px; color:var(--acc2); letter-spacing:.2em;
+}
+.sec-head h2{font-family:var(--serif); font-size:26px; font-weight:400; letter-spacing:.04em}
+.sec-head span{font-size:13px; color:var(--ink3); margin-left:auto}
+
+.cards{display:grid; grid-template-columns:repeat(3,1fr); gap:22px}
+.card{
+  background:var(--card); border:1px solid var(--line); border-radius:4px;
+  overflow:hidden; display:flex; flex-direction:column;
+  transition:transform .25s cubic-bezier(.2,.7,.3,1), box-shadow .25s, border-color .25s;
+  text-decoration:none; color:inherit;
+}
+.card:hover{transform:translateY(-4px); box-shadow:0 14px 34px -12px rgba(70,50,25,.24); border-color:var(--line2)}
+.card-thumb{position:relative; aspect-ratio:1.63; overflow:hidden; background:#EFE9DE}
+.card-thumb img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease}
+.card:hover .card-thumb img{transform:scale(1.035)}
+.card-thumb .badge{
+  position:absolute; top:12px; left:12px;
+  background:rgba(255,255,255,.93); backdrop-filter:blur(6px);
+  font-size:11px; letter-spacing:.16em; padding:4px 10px; border-radius:2px; color:var(--ink2);
+  font-family:var(--serif);
+}
+.card-body{padding:20px 22px 24px; display:flex; flex-direction:column; flex:1}
+.card-style{font-size:12px; letter-spacing:.2em; color:var(--c,var(--acc)); margin-bottom:10px}
+.card-title{
+  font-family:var(--serif); font-size:25px; line-height:1.34; letter-spacing:.05em;
+  font-weight:400; margin-bottom:14px;
+}
+.card-title i{display:block; font-style:normal; font-size:15px; color:var(--ink3); letter-spacing:.12em; margin-top:6px}
+.card-desc{font-size:13.5px; color:var(--ink2); line-height:1.7; margin-bottom:16px}
+.swatch{display:flex; gap:5px; margin-bottom:18px; margin-top:auto}
+.swatch i{width:26px; height:8px; border-radius:1px}
+.card-foot{
+  display:flex; align-items:center; justify-content:space-between;
+  border-top:1px solid var(--line); padding-top:14px; font-size:12.5px; color:var(--ink3);
+}
+.card-foot b{font-weight:400; color:var(--c,var(--acc))}
+
+/* ============ 方案详情 ============ */
+.plan{
+  border-top:1px solid var(--line2); padding-top:52px; margin-top:0;
+}
+.plan-wrap{display:grid; grid-template-columns:372px 1fr; gap:46px; align-items:start}
+.plan-wrap > .rev:first-child{position:static}
+@media (min-width:981px) and (min-height:840px){
+  .plan-wrap > .rev:first-child{position:sticky; top:74px}
+}
+.plan-tag{display:flex; align-items:baseline; gap:14px; margin-bottom:20px}
+.plan-tag .no{
+  font-family:var(--serif); font-size:46px; line-height:1; color:var(--c);
+  opacity:.32; font-weight:400;
+}
+.plan-tag .nm{font-size:12px; letter-spacing:.22em; color:var(--c); padding-bottom:6px}
+.plan-title{
+  font-family:var(--serif); font-size:clamp(26px,3vw,36px); line-height:1.34;
+  letter-spacing:.06em; font-weight:400; margin-bottom:8px;
+}
+.plan-sub{font-size:13px; color:var(--ink3); margin-bottom:26px; letter-spacing:.06em}
+
+.kv-def{border-collapse:collapse; width:100%; margin-bottom:24px; font-size:13.5px}
+.kv-def th{
+  text-align:left; font-weight:400; font-size:11.5px; letter-spacing:.14em;
+  color:var(--ink3); padding:9px 0 7px; border-bottom:1px solid var(--line); width:78px;
+  vertical-align:top;
+}
+.kv-def td{padding:9px 0 7px; border-bottom:1px solid var(--line); color:var(--ink2); line-height:1.65}
+.kv-def td b{color:var(--ink); font-weight:600; font-family:var(--serif); font-size:15px; letter-spacing:.08em}
+
+.lv{display:inline-flex; align-items:center; gap:4px; vertical-align:-1px; margin:0 3px}
+.lv i{width:7px; height:7px; border-radius:50%; background:var(--c); display:block; flex:none}
+.lv i.o{background:transparent; box-shadow:inset 0 0 0 1.2px var(--c); opacity:.4}
+.lv b{font-weight:600; color:var(--c); font-size:11.5px; letter-spacing:.08em; margin-left:3px; margin-right:6px}
+
+.tags{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:24px}
+.tags span{
+  font-size:12px; padding:3px 10px; border:1px solid var(--line2); border-radius:2px;
+  color:var(--ink2); background:#FCFAF6;
+}
+.note{
+  padding:14px 16px; background:#FCF7EE; border-left:2px solid var(--c);
+  font-size:13px; color:var(--ink2); line-height:1.72; border-radius:0 3px 3px 0;
+}
+.note b{color:var(--ink); display:block; font-size:11.5px; letter-spacing:.14em; margin-bottom:6px; font-weight:400}
+
+.plan-visual{display:flex; flex-direction:column; gap:16px}
+.shot{
+  position:relative; border-radius:3px; overflow:hidden; cursor:zoom-in;
+  border:1px solid var(--line); background:#EFE9DE;
+  box-shadow:0 2px 16px -8px rgba(70,50,25,.3);
+}
+.shot img{width:100%; transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+.shot:hover img{transform:scale(1.014)}
+.shot-cap{
+  display:flex; align-items:center; gap:10px; justify-content:space-between;
+  font-size:12px; color:var(--ink3); letter-spacing:.06em; padding:0 2px;
+}
+.shot-cap em{font-style:normal; color:var(--c); letter-spacing:.14em; font-size:11.5px}
+.inv-row{display:grid; grid-template-columns:216px 1fr; gap:26px; align-items:start; margin-top:8px;
+  padding-top:22px; border-top:1px solid var(--line)}
+.inv-row .shot{border-radius:2px}
+.inv-txt h4{font-family:var(--serif); font-size:17px; font-weight:400; letter-spacing:.08em; margin-bottom:10px}
+.inv-txt p{font-size:13px; color:var(--ink2); line-height:1.72; margin-bottom:10px}
+.inv-txt ul{margin:0; padding-left:16px; font-size:13px; color:var(--ink2); line-height:1.8}
+.inv-txt li::marker{color:var(--c)}
+
+.alt{margin-top:18px}
+.alt summary{
+  cursor:pointer; list-style:none; font-size:12.5px; color:var(--ink3); letter-spacing:.08em;
+  padding:9px 0; border-top:1px dashed var(--line2); display:flex; align-items:center; gap:8px;
+}
+.alt summary::-webkit-details-marker{display:none}
+.alt summary::before{content:"＋"; color:var(--c); font-size:13px}
+.alt[open] summary::before{content:"－"}
+.alt-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; padding:8px 0 4px}
+.alt-grid figure{margin:0}
+.alt-grid img{border:1px solid var(--line); border-radius:2px; width:100%}
+.alt-grid figcaption{font-size:11.5px; color:var(--ink3); margin-top:6px; line-height:1.6}
+
+/* ============ 对比表 ============ */
+.tbl-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:3px; background:var(--card)}
+table.cmp{border-collapse:collapse; width:100%; min-width:820px; font-size:13.5px}
+table.cmp th,table.cmp td{padding:14px 16px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+table.cmp thead th{
+  background:#F7F2E9; font-weight:400; font-family:var(--serif); font-size:15px;
+  letter-spacing:.06em; border-bottom:1.5px solid var(--line2); white-space:nowrap;
+}
+table.cmp thead th small{display:block; font-family:var(--sans); font-size:11px; color:var(--ink3); letter-spacing:.12em; margin-top:3px}
+table.cmp tbody th{
+  font-weight:400; color:var(--ink3); font-size:12px; letter-spacing:.1em;
+  background:#FCFAF6; width:110px; white-space:nowrap;
+}
+table.cmp tr:last-child td,table.cmp tr:last-child th{border-bottom:none}
+table.cmp td{color:var(--ink2); line-height:1.7}
+table.cmp td b{color:var(--ink); font-weight:600}
+.p1{color:#9A6B2F}.p2{color:#1E4E6B}.p3{color:#0E6E7C}
+
+/* ============ 待确认 ============ */
+.todo{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
+.todo article{
+  background:var(--card); border:1px solid var(--line); border-radius:3px; padding:24px 22px 26px;
+  position:relative;
+}
+.todo article::before{
+  content:""; position:absolute; top:0; left:0; width:100%; height:2px;
+  background:linear-gradient(90deg,var(--acc2),transparent);
+}
+.todo .qn{font-family:var(--serif); font-size:11px; letter-spacing:.2em; color:var(--acc2); margin-bottom:12px}
+.todo h3{font-family:var(--serif); font-size:18px; font-weight:400; letter-spacing:.04em; margin-bottom:10px; line-height:1.5}
+.todo p{font-size:13px; color:var(--ink2); line-height:1.75}
+.todo p + p{margin-top:9px; padding-top:9px; border-top:1px dashed var(--line)}
+.todo p b{color:var(--ink); font-weight:600}
+
+/* ============ 页脚 ============ */
+footer{
+  border-top:1px solid var(--line2); background:#F5F0E7; margin-top:20px;
+}
+.foot-in{
+  max-width:1180px; margin:0 auto; padding:44px 28px 56px;
+  display:grid; grid-template-columns:1.3fr 1fr; gap:48px; font-size:13px; color:var(--ink2);
+}
+.foot-in h5{
+  font-family:var(--serif); font-size:13px; font-weight:400; letter-spacing:.18em;
+  color:var(--ink3); margin-bottom:12px;
+}
+.foot-in code{
+  font-family:ui-monospace,"Cascadia Mono",Consolas,monospace; font-size:12px;
+  background:#EDE6DA; padding:2px 7px; border-radius:2px; color:var(--ink2);
+  display:inline-block; margin:2px 0;
+}
+.foot-in ul{list-style:none; line-height:2}
+.foot-in li{display:flex; gap:8px}
+.foot-in li span{color:var(--ink3); flex:none; width:78px}
+
+/* ============ Lightbox ============ */
+#lb{
+  position:fixed; inset:0; z-index:99; background:rgba(24,20,16,.94);
+  display:none; align-items:center; justify-content:center; padding:34px; cursor:zoom-out;
+}
+#lb.on{display:flex}
+#lb img{max-width:100%; max-height:100%; object-fit:contain; border-radius:2px; box-shadow:0 30px 80px rgba(0,0,0,.5)}
+#lb .x{
+  position:absolute; top:20px; right:26px; color:#fff; font-size:13px; letter-spacing:.16em;
+  border:1px solid rgba(255,255,255,.32); padding:6px 14px; border-radius:99px; cursor:pointer;
+}
+
+/* ============ 动效 ============ */
+.rev{opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1)}
+.rev.in{opacity:1; transform:none}
+
+/* ============ 响应式 ============ */
+@media(max-width:980px){
+  .cards{grid-template-columns:1fr}
+  .plan-wrap{grid-template-columns:1fr; gap:30px}
+  .todo{grid-template-columns:1fr}
+  .foot-in{grid-template-columns:1fr; gap:26px}
+  .inv-row{grid-template-columns:1fr; gap:16px}
+  .inv-row .shot{max-width:280px}
+  .nav-links{display:none}
+}
+@media(max-width:720px){
+  .tbl-wrap::before{
+    content:"← 表格可左右滑动 →"; display:block; text-align:center;
+    font-size:11.5px; letter-spacing:.14em; color:var(--ink3);
+    padding:9px 16px; border-bottom:1px solid var(--line); background:#FCFAF6;
+  }
+  .hero{padding-top:44px}
+  .plan-title{font-size:27px}
+}
+@media print{
+  @page{size:A4 portrait; margin:13mm 14mm}
+  body{background:#fff; font-size:9pt; line-height:1.6}
+  .nav,#lb,.nav-btn,.alt{display:none!important}
+  .rev{opacity:1!important; transform:none!important; transition:none!important}
+
+  .hero{padding:0 0 10px}
+  .hero h1{font-size:23pt; margin-bottom:8px; line-height:1.24}
+  .hero p{font-size:8.8pt; max-width:none}
+  .eyebrow{font-size:7.5pt; margin-bottom:12px}
+  .hero-meta{margin-top:12px; padding-top:10px; gap:24px}
+  .hero-meta strong{font-size:12pt}
+  .hero-meta div{font-size:8pt}
+
+  .sec{padding:0 0 10px}
+  .sec-head{margin-bottom:12px}
+  .sec-head h2{font-size:14pt}
+  .sec-num{font-size:8pt}
+  .sec-head span{font-size:8pt}
+
+  /* 总览三卡压缩到一页 */
+  .cards{grid-template-columns:repeat(3,1fr); gap:8px}
+  .card-thumb{aspect-ratio:1.63}
+  .card-body{padding:8px 10px 10px}
+  .card-style{font-size:7pt; margin-bottom:4px}
+  .card-title{font-size:12pt; margin-bottom:5px; line-height:1.3}
+  .card-desc{font-size:7.6pt; line-height:1.55; margin-bottom:6px}
+  .swatch{margin-bottom:6px; gap:3px}
+  .swatch i{width:16px; height:4px}
+  .card-foot{font-size:7.5pt; padding-top:6px}
+  .card:hover{transform:none; box-shadow:none}
+
+  /* 每套方案一页：改为单列，图放到通栏 */
+  .plan{page-break-before:always; border-top:none; padding-top:0; break-inside:avoid}
+  .plan-wrap{grid-template-columns:1fr; gap:5mm}
+  .plan-wrap > .rev:first-child{position:static!important}
+  .plan-tag{margin-bottom:6px}
+  .plan-tag .no{font-size:24pt}
+  .plan-tag .nm{font-size:7.5pt}
+  .plan-title{font-size:18pt; margin-bottom:3px; line-height:1.28}
+  .plan-sub{font-size:7.8pt; margin-bottom:8px}
+  .kv-def{font-size:8.8pt; margin-bottom:8px}
+  .kv-def th{font-size:7.2pt; padding:4px 0 3px; width:16mm}
+  .kv-def td{padding:4px 0 3px; line-height:1.5}
+  .kv-def td b{font-size:10.5pt}
+  .tags{gap:3px; margin-bottom:8px}
+  .tags span{font-size:7pt; padding:2px 6px}
+  .note{padding:7px 10px; font-size:8.2pt; line-height:1.5}
+
+  .shot img{max-height:86mm; object-fit:contain; width:100%}
+  .shot{box-shadow:none; cursor:default}
+  .shot-cap{font-size:7pt}
+  .inv-row{grid-template-columns:38mm 1fr; gap:7mm; padding-top:6px; margin-top:0}
+  .inv-txt h4{font-size:10.5pt; margin-bottom:4px}
+  .inv-txt p,.inv-txt ul{font-size:8pt; line-height:1.5}
+  .inv-row .shot img{max-height:52mm}
+
+  .tbl-wrap{overflow:visible; border:none}
+  table.cmp{min-width:0; font-size:7.6pt}
+  table.cmp th,table.cmp td{padding:5px 7px}
+  table.cmp thead th{font-size:9pt}
+  table.cmp tbody th{font-size:7pt; width:20mm}
+
+  .todo{grid-template-columns:repeat(3,1fr); gap:8px}
+  .todo article{padding:10px 10px 12px}
+  .todo h3{font-size:10pt; margin-bottom:5px}
+  .todo p{font-size:7.6pt; line-height:1.55}
+  .todo .qn{font-size:7pt; margin-bottom:5px}
+
+  footer{margin-top:0; background:transparent; border-top:1px solid var(--line2)}
+  .foot-in{grid-template-columns:1.3fr 1fr; gap:10mm; padding:12px 0 0; font-size:7.6pt}
+  .foot-in h5{font-size:7.5pt; margin-bottom:6px}
+  .foot-in code{font-size:7pt; padding:1px 4px}
+  .foot-in ul{line-height:1.8}
+}
+</style>
+<noscript><style>.rev{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <div class="nav-brand">聚客集团 <b>2027</b> 新年晚会</div>
+    <div class="nav-links">
+      <a href="#overview">三套总览</a>
+      <a href="#p1">方案一 敦煌</a>
+      <a href="#p2">方案二 蓝金</a>
+      <a href="#p3">方案三 科技</a>
+      <a href="#cmp">对比</a>
+      <a href="#todo">待确认</a>
+    </div>
+    <button class="nav-btn" onclick="window.print()">打印 / 存 PDF</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">视觉方案 · 内部评审稿</div>
+  <h1>三个主题词，<br>三套能直接落地的视觉<em>。</em></h1>
+  <p>同一句诉求——前四字扣羊年、后四字引新年、AI 只能"含"不能"写"。下面三套是据此产出的主视觉（横版）与邀请函（竖版），每套都给出了主题词的拆解、AI 的隐喻落点，以及落地的现实条件。</p>
+  <div class="hero-meta">
+    <div><strong>2027</strong>丁未羊年 · 1 月 16 日（拟）</div>
+    <div><strong>53 人</strong>名单合计 · 含股东</div>
+    <div><strong>3 套</strong>主题词 × 主KV × 邀请函</div>
+    <div><strong>6 张</strong>横版主KV 已出图</div>
+  </div>
+</header>
+
+<!-- ============ 总览 ============ -->
+<section class="sec" id="overview">
+  <div class="sec-head">
+    <div class="sec-num">01</div>
+    <h2>三套方案总览</h2>
+    <span>点击卡片进入详情</span>
+  </div>
+
+  <div class="cards">
+    <a class="card rev" href="#p1" style="--c:#9A6B2F">
+      <div class="card-thumb">
+        <span class="badge">方案一</span>
+        <img src="assets/kv1.jpg" alt="方案一 敦煌风 主KV">
+      </div>
+      <div class="card-body">
+        <div class="card-style">敦 煌 风</div>
+        <h3 class="card-title">金羊献瑞<br>智启新元</h3>
+        <p class="card-desc">米金云海、赭红绸带、白瓷质感的瑞羊踏云回望。最"像年会"的一套，长辈与股东接受度最高。</p>
+        <div class="swatch">
+          <i style="background:#D9C49A"></i><i style="background:#B08342"></i>
+          <i style="background:#A8543F"></i><i style="background:#F2E8D5"></i>
+          <i style="background:#7B4A2E"></i>
+        </div>
+        <div class="card-foot"><span>暖 · 稳 · 传统</span><b>查看详情 →</b></div>
+      </div>
+    </a>
+
+    <a class="card rev" href="#p2" style="--c:#1E4E6B">
+      <div class="card-thumb">
+        <span class="badge">方案二</span>
+        <img src="assets/kv2.jpg" alt="方案二 蓝金风 主KV">
+      </div>
+      <div class="card-body">
+        <div class="card-style">蓝 金 风</div>
+        <h3 class="card-title">吉羊纳福<br>睿见新程</h3>
+        <p class="card-desc">深靛夜空托金色云纹与流金圆环，瑞羊立于云上回望。金色在深底上最"贵"，也最上镜。</p>
+        <div class="swatch">
+          <i style="background:#122A3C"></i><i style="background:#1E4E6B"></i>
+          <i style="background:#C9A24D"></i><i style="background:#E8D9A8"></i>
+          <i style="background:#6E8CA0"></i>
+        </div>
+        <div class="card-foot"><span>雅 · 贵 · 沉稳</span><b>查看详情 →</b></div>
+      </div>
+    </a>
+
+    <a class="card rev" href="#p3" style="--c:#0E6E7C">
+      <div class="card-thumb">
+        <span class="badge">方案三</span>
+        <img src="assets/kv3.jpg" alt="方案三 科技风 主KV">
+      </div>
+      <div class="card-body">
+        <div class="card-style">科 技 风</div>
+        <h3 class="card-title">瑞羊聚光<br>星启新元</h3>
+        <p class="card-desc">纯黑底、粒子流光、星云环绕的"数据羊"。最贴公司 AI 属性，但对屏幕与灯光的容忍度最低。</p>
+        <div class="swatch">
+          <i style="background:#0B0E10"></i><i style="background:#1B3B44"></i>
+          <i style="background:#2FB6C8"></i><i style="background:#E0913F"></i>
+          <i style="background:#E8DCC4"></i>
+        </div>
+        <div class="card-foot"><span>锐 · 新 · 科技</span><b>查看详情 →</b></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ 方案一 ============ -->
+<section class="sec plan" id="p1">
+  <div class="plan-wrap">
+    <div class="rev">
+      <div class="plan-tag"><div class="no">01</div><div class="nm" style="--c:#9A6B2F">敦 煌 风 · 米 金 主 调</div></div>
+      <h2 class="plan-title">金羊献瑞<br>智启新元</h2>
+      <p class="plan-sub">金羊献瑞 智启新元 · 聚客集团 2027 新年晚会</p>
+
+      <table class="kv-def">
+        <tr><th>前四字</th><td><b>金羊献瑞</b><br>扣丁未羊年，"瑞"字落年味，是最不容易出错的开场。</td></tr>
+        <tr><th>后四字</th><td><b>智启新元</b><br>开启新一年、新纪元，指向公司下一程。</td></tr>
+        <tr><th>AI 落点</th><td>"智"字一肩双挑——字面是智慧、智能，暗里就是 AI。全场唯一可能的"点破"位。<br>含蓄度 <span class="lv"><i></i><i></i><i class="o"></i><b>中</b></span>懂的人能听出来，不懂的也不违和。</td></tr>
+      </table>
+
+      <div class="tags">
+        <span>米金云海</span><span>赭红绸带</span><span>白瓷瑞羊</span>
+        <span>缠枝金纹</span><span>水墨远山</span><span>红梅点染</span>
+      </div>
+
+      <div class="note" style="--c:#9A6B2F">
+        <b>落地提示</b>
+        底色整体偏亮偏暖，投影仪与 LED 都能还原，是<strong>唯一对设备几乎没有要求</strong>的一套。合影时人脸不会被压暗，这一点在实际现场很占便宜。
+      </div>
+    </div>
+
+    <div class="plan-visual rev">
+      <div class="shot" data-src="assets/kv1.jpg">
+        <img src="assets/kv1.jpg" alt="方案一 主KV 横版">
+      </div>
+      <div class="shot-cap"><span>主KV · 横版 · 1536 × 1024</span><em>BACKGROUND / 主画面</em></div>
+
+      <div class="inv-row">
+        <div class="shot" data-src="assets/inv1.jpg"><img src="assets/inv1.jpg" alt="方案一 邀请函"></div>
+        <div class="inv-txt">
+          <h4>邀请函封面 · 竖版</h4>
+          <p>与主KV 同一套元素下移构图：顶部 2027，主题词两行居中，瑞羊正面踏云，红绸从画框四角垂下形成"门"的感觉。</p>
+          <ul>
+            <li>主题词与主KV <strong>完全一致</strong>，无需再改字</li>
+            <li>正面机位，适合做红包封面、台卡的同一母版</li>
+            <li>待补：具体时间、酒店名、Dress Code、RSVP</li>
+          </ul>
+        </div>
+      </div>
+
+      <details class="alt">
+        <summary>留档版本（1 张）</summary>
+        <div class="alt-grid">
+          <figure>
+            <img src="assets/kv1_alt.jpg" alt="方案一 早期版本">
+            <figcaption>早期版：副标题为"祥瑞满堂 共赴新程"，后改为"聚客集团 2027 新年晚会"</figcaption>
+          </figure>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 方案二 ============ -->
+<section class="sec plan" id="p2">
+  <div class="plan-wrap">
+    <div class="rev">
+      <div class="plan-tag"><div class="no">02</div><div class="nm" style="--c:#1E4E6B">蓝 金 风 · 深 靛 主 调</div></div>
+      <h2 class="plan-title">吉羊纳福<br>睿见新程</h2>
+      <p class="plan-sub">吉羊纳福 睿见新程 · 聚客集团 2027 新年晚会</p>
+
+      <table class="kv-def">
+        <tr><th>前四字</th><td><b>吉羊纳福</b><br>羊年吉语，把"吉祥"换成"吉羊"，一个字就点明年份。</td></tr>
+        <tr><th>后四字</th><td><b>睿见新程</b><br>"睿见"＝以睿智洞察看见前路，也可读作"锐见"，锋锐的看见。</td></tr>
+        <tr><th>AI 落点</th><td>"睿"是智慧的高阶说法，"见"是洞察力——合起来正是 AI 做的事：<strong>看得更远、更准</strong>。全句没有一个技术词，却句句在讲智能。<br>含蓄度 <span class="lv"><i></i><i></i><i></i><b>高</b></span>是三套里最"藏得住"的一套。</td></tr>
+      </table>
+
+      <div class="tags">
+        <span>深靛夜空</span><span>流金圆环</span><span>金云托羊</span>
+        <span>青花点饰</span><span>金沙星屑</span>
+      </div>
+
+      <div class="note" style="--c:#1E4E6B">
+        <b>落地提示</b>
+        深底 + 金线，在 LED 大屏上非常出彩；但如果现场只有投影，金线会被冲淡一半，<strong>建议配 LED 使用</strong>。另外它和方案三一样吃暗场环境，厅内灯光要能压暗。
+      </div>
+    </div>
+
+    <div class="plan-visual rev">
+      <div class="shot" data-src="assets/kv2.jpg">
+        <img src="assets/kv2.jpg" alt="方案二 主KV 横版">
+      </div>
+      <div class="shot-cap"><span>主KV · 横版 · 1536 × 1024</span><em>BACKGROUND / 主画面</em></div>
+
+      <div class="inv-row">
+        <div class="shot" data-src="assets/inv2.jpg"><img src="assets/inv2.jpg" alt="方案二 邀请函"></div>
+        <div class="inv-txt">
+          <h4>邀请函封面 · 竖版</h4>
+          <p>深蓝夜空压顶，2027 与主题词三行居上，瑞羊昂首向上，两侧金云向上翻卷形成收边，构图最具"请柬"的仪式感。</p>
+          <ul>
+            <li>竖版利用率高，适合微信长图直接转发</li>
+            <li>深底烫金印刷效果最好，可上金箔工艺</li>
+            <li>待补：具体时间、酒店名、Dress Code、RSVP</li>
+          </ul>
+        </div>
+      </div>
+
+      <details class="alt">
+        <summary>留档版本（1 张）</summary>
+        <div class="alt-grid">
+          <figure>
+            <img src="assets/kv2_alt.jpg" alt="方案二 早期版本">
+            <figcaption>早期版：主题词曾为"金羊献瑞 智启新元"，后换为现用的"吉羊纳福 睿见新程"</figcaption>
+          </figure>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 方案三 ============ -->
+<section class="sec plan" id="p3">
+  <div class="plan-wrap">
+    <div class="rev">
+      <div class="plan-tag"><div class="no">03</div><div class="nm" style="--c:#0E6E7C">科 技 风 · 玄 黑 主 调</div></div>
+      <h2 class="plan-title">瑞羊聚光<br>星启新元</h2>
+      <p class="plan-sub">瑞羊聚光 星启新元 · 聚客集团 2027 新年晚会</p>
+
+      <table class="kv-def">
+        <tr><th>前四字</th><td><b>瑞羊聚光</b><br>瑞羊是年份；"聚光"是画面里正在发生的事——光聚到它身上。</td></tr>
+        <tr><th>后四字</th><td><b>星启新元</b><br>以星为引，开启新纪元。星＝一个个节点，启＝启动。</td></tr>
+        <tr><th>AI 落点</th><td>"聚光"＝算力/数据汇聚，"星"＝分布式节点与智能体——<strong>用光的物理，讲算力的逻辑</strong>。整句零技术词、零字母。<br>含蓄度 <span class="lv"><i></i><i></i><i></i><b>最高</b></span>但也最容易只被读成一幅好看的星图，建议靠主持人串词点一句。</td></tr>
+      </table>
+
+      <div class="tags">
+        <span>玄黑底</span><span>粒子流光</span><span>星云环</span>
+        <span>青橙双色光</span><span>数据星尘</span>
+      </div>
+
+      <div class="note" style="--c:#0E6E7C">
+        <b>落地提示</b>
+        黑底最挑设备：<strong>必须 LED，不能投影</strong>。投影打不出纯黑，画面会发灰，粒子全部糊掉。另外暗场 KV 印在纸质物料（台卡、红包）上会偏闷，纸质件建议另配一版浅色系。
+      </div>
+    </div>
+
+    <div class="plan-visual rev">
+      <div class="shot" data-src="assets/kv3.jpg">
+        <img src="assets/kv3.jpg" alt="方案三 主KV 横版">
+      </div>
+      <div class="shot-cap"><span>主KV · 横版（横排标题）· 1536 × 1024</span><em>TITLE / 横排</em></div>
+
+      <div class="inv-row">
+        <div class="shot" data-src="assets/inv3.jpg"><img src="assets/inv3.jpg" alt="方案三 邀请函"></div>
+        <div class="inv-txt">
+          <h4>邀请函封面 · 竖版</h4>
+          <p>黑色渐隐背景，标题三行居中，线框粒子构成的瑞羊立于光环中心，脚下有镜面反光与同心圆涟漪。</p>
+          <ul>
+            <li>与主KV 主题词一致，气质最"未来"</li>
+            <li>深底适合烫银 / 局部 UV，做出金属冷光</li>
+            <li>待补：具体时间、酒店名、Dress Code、RSVP</li>
+          </ul>
+        </div>
+      </div>
+
+      <details class="alt">
+        <summary>另一种排版（1 张）</summary>
+        <div class="alt-grid">
+          <figure>
+            <img src="assets/kv3_alt.jpg" alt="方案三 竖排版本">
+            <figcaption>竖排两列版：标题居左、"星启新元"在外侧，羊居右上。更中式，但横版屏幕左右留白不均</figcaption>
+          </figure>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 对比 ============ -->
+<section class="sec" id="cmp" style="padding-top:8px">
+  <div class="sec-head">
+    <div class="sec-num">05</div>
+    <h2>放到一起比</h2>
+    <span>都基于同一句诉求，差别在"藏得多深"和"现场要多好的设备"</span>
+  </div>
+  <div class="tbl-wrap rev">
+    <table class="cmp">
+      <thead>
+        <tr>
+          <th style="width:110px"></th>
+          <th class="p1">方案一 · 敦煌风<small>米金 / 赭红</small></th>
+          <th class="p2">方案二 · 蓝金风<small>深靛 / 流金</small></th>
+          <th class="p3">方案三 · 科技风<small>玄黑 / 青橙</small></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th>主题词</th>
+          <td><b>金羊献瑞 智启新元</b></td>
+          <td><b>吉羊纳福 睿见新程</b></td>
+          <td><b>瑞羊聚光 星启新元</b></td></tr>
+        <tr><th>AI 藏在哪</th>
+          <td>"智"字（智慧／智能）</td>
+          <td>"睿见"（睿智的洞察）</td>
+          <td>"聚光 + 星"（算力汇聚、节点）</td></tr>
+        <tr><th>含蓄度</th>
+          <td>中 <span class="lv" style="--c:#9A6B2F"><i></i><i></i><i class="o"></i></span></td>
+          <td>高 <span class="lv" style="--c:#1E4E6B"><i></i><i></i><i></i></span></td>
+          <td>最高 <span class="lv" style="--c:#0E6E7C"><i></i><i></i><i></i></span><br><span style="font-size:12px;color:var(--ink3)">偏意象，需口播点明</span></td></tr>
+        <tr><th>被读懂的<br>把握</th>
+          <td>较有把握——"智"字近，员工一听就联想到智能化</td>
+          <td>中等——需要主持人或致辞带一句"睿见"</td>
+          <td>较低——不解释大概率只当星图看</td></tr>
+        <tr><th>设备要求</th>
+          <td><b>低</b>：投影 / LED 皆可，明亮底不挑设备</td>
+          <td><b>中偏高</b>：建议 LED，投影会吃掉金线</td>
+          <td><b>高</b>：必须 LED，投影黑不下去</td></tr>
+        <tr><th>厅内灯光</th>
+          <td>可全亮，不影响合影</td>
+          <td>需能压暗</td>
+          <td>需能压暗，最好配合开场暗场</td></tr>
+        <tr><th>纸质物料<br>适配</th>
+          <td><b>最好</b>：台卡、红包、签到背板、伴手礼袋都能直接用</td>
+          <td>好：适合烫金、金箔工艺</td>
+          <td>差：印在纸上偏闷，需另配浅色版</td></tr>
+        <tr><th>气质 / 给谁看</th>
+          <td>给股东和长辈看最稳，年味足、不俗气</td>
+          <td>体面、有档次，适合对外场合与客户同席</td>
+          <td>最能体现公司做 AI 的身份，偏年轻、偏对内</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 待确认 ============ -->
+<section class="sec" id="todo">
+  <div class="sec-head">
+    <div class="sec-num">06</div>
+    <h2>需要你拍三件事</h2>
+    <span>不定这三件，后面的物料没法开工</span>
+  </div>
+  <div class="todo">
+    <article class="rev">
+      <div class="qn">DECISION 01</div>
+      <h3>三套只能留一套</h3>
+      <p>台卡、红包、签到背板、邀请函、伴手礼袋都要用同一个主题词。一旦定稿，另外两套的图作废。</p>
+      <p><b>建议</b>：先按"给谁看"选——股东与客户同席多，选方案二；纯对内、想强调 AI 身份，选方案三；求稳、要年味，选方案一。</p>
+    </article>
+    <article class="rev">
+      <div class="qn">DECISION 02</div>
+      <h3>方案三用横排还是竖排</h3>
+      <p>科技风现有两种标题排版：横排（标题在羊上方，左右对称）与竖排两列（标题居左）。</p>
+      <p><b>建议</b>：舞台横屏用横排版，视觉重心稳；若要做成竖幅易拉宝或长图，用竖排版。两版可并存，不算两套方案。</p>
+    </article>
+    <article class="rev">
+      <div class="qn">DECISION 03</div>
+      <h3>定稿前还有 4 项待补</h3>
+      <p>三张邀请函封面都已留出文字位，但<strong>日期、酒店、Dress Code、RSVP 方式</strong>尚未上版——这些等你定了场地再补。</p>
+      <p><b>提醒</b>：邀请函一旦发出就要重印，建议和场地确认同步推进，别先发"占位版"。</p>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <div>
+      <h5>关于这套稿</h5>
+      <ul>
+        <li><span>主KV</span><code>2027\主KV\</code> 6 张，1536×1024</li>
+        <li><span>邀请函</span><code>2027\邀请函\</code> 3 张，1024×1536</li>
+        <li><span>本页面</span><code>2027\视觉方案展示\index.html</code></li>
+      </ul>
+    </div>
+    <div>
+      <h5>两点说明</h5>
+      <p style="line-height:1.85">① 页面里的图裁掉了底部约 82px 的 AI 生成水印带，<strong>源文件仍带水印</strong>，对外使用前需重出干净版本。<br>② 农历 2027 为丁未年，生肖羊——三套 KV 上的生肖形象均为羊，文案未出现"马"字。</p>
+    </div>
+  </div>
+</footer>
+
+<div id="lb"><span class="x">关闭 ESC</span><img src="" alt=""></div>
+
+<script>
+// 入场动画
+const io = new IntersectionObserver((es)=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:.01, rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.rev').forEach((el,i)=>{ el.style.transitionDelay=(i%4)*60+'ms'; io.observe(el); });
+// 兜底：3 秒后确保全部可见（防止个别元素未触发）
+setTimeout(()=>document.querySelectorAll('.rev:not(.in)').forEach(el=>el.classList.add('in')),3000);
+
+// Lightbox
+const lb = document.getElementById('lb');
+const lbImg = lb.querySelector('img');
+document.querySelectorAll('.shot').forEach(s=>{
+  s.addEventListener('click', ()=>{
+    lbImg.src = s.dataset.src || s.querySelector('img').src;
+    lb.classList.add('on');
+  });
+});
+function closeLb(){ lb.classList.remove('on'); lbImg.src=''; }
+lb.addEventListener('click', closeLb);
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeLb(); });
+</script>
+</body>
+</html>
